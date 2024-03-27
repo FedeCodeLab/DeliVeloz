@@ -60,28 +60,12 @@ export default function reducer(state = initialState, { type, payload }) {
 
     // ? ----------------------------- Set filter
     case ORDER_BY:
-          // eslint-disable-next-line no-case-declarations
-          let orderedDishes;
-          // eslint-disable-next-line no-case-declarations
-          const { filteredDishes, dishes } = state;
-          // eslint-disable-next-line no-case-declarations
-          const sourceArray = filteredDishes.length > 0 ? filteredDishes : dishes;
-        
-          if (payload === "NombreAscendente") {
-            orderedDishes = sourceArray.slice().sort((a, b) => a.name.localeCompare(b.name));
-          } else if (payload === "NombreDescendente") {
-            orderedDishes = sourceArray.slice().sort((a, b) => b.name.localeCompare(a.name));
-          } else if (payload === "asc") {
-            orderedDishes = sourceArray.slice().sort((a, b) => parseFloat(a.price) - parseFloat(b.price));
-          } else if (payload === "desc") {
-            orderedDishes = sourceArray.slice().sort((a, b) => parseFloat(b.price) - parseFloat(a.price));
-          }
-        
-          return {
-            ...state,
-            filteredDishes: orderedDishes
-          };
-    
+      return {
+        ...state,
+        dishes: payload,
+        filteredDishes: payload
+       }
+
   
    // ? ----------------------------- Get by Name
 

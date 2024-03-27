@@ -43,12 +43,17 @@ export const setShoppingCart = (payload) => ({
 
 // ? ----------------------------- Filter By
 
-export const orderBy = (payload) => {
-  return {
-    type: ORDER_BY,
-    payload,
+export const orderBy = (orderType) => {
+  return async (dispatch) => {
+    try {
+      const response = await axios.get(`http://localhost:3001/filter/default/default/${orderType}`);
+      dispatch({ type: ORDER_BY, payload: response.data });
+    } catch (error) {
+      console.error('Error ordering dishes:', error);
+    }
   };
 };
+
 
 // ? ----------------------------- Filter By
 

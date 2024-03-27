@@ -90,8 +90,6 @@ export default function Filters({ setCurrentPage, categoryArray }) {
           <option value="placeholder" disabled={true}>
             Por Precio
           </option>
-          <option value="NombreAscendente">Nombre A - Z</option>
-          <option value="NombreDescendente">Nombre Z - A</option>
           <option value="asc">Ascendente</option>
           <option value="desc">Descendentemente</option>
         </select>
